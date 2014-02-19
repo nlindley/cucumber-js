@@ -388,6 +388,9 @@ process.binding = function (name) {
 
 });
 
+require.define("/node_modules/cucumber-html/package.json",function(require,module,exports,__dirname,__filename,process){module.exports = {"main":"./src/main/resources/cucumber/formatter/formatter"}
+});
+
 require.define("/node_modules/cucumber-html/src/main/resources/cucumber/formatter/formatter.js",function(require,module,exports,__dirname,__filename,process){var CucumberHTML = {};
 
 CucumberHTML.DOMFormatter = function(rootNode) {
@@ -619,7 +622,7 @@ if (typeof module !== 'undefined') {
 
 });
 
-require.define("/cucumber/ast",function(require,module,exports,__dirname,__filename,process){var Ast        = {};
+require.define("c:/cucumber/ast",function(require,module,exports,__dirname,__filename,process){var Ast        = {};
 Ast.Assembler  = require('./ast/assembler');
 Ast.Background = require('./ast/background');
 Ast.DataTable  = require('./ast/data_table');
@@ -634,7 +637,7 @@ module.exports = Ast;
 
 });
 
-require.define("/cucumber/ast/assembler",function(require,module,exports,__dirname,__filename,process){var Assembler = function(features, filter) {
+require.define("c:/cucumber/ast/assembler",function(require,module,exports,__dirname,__filename,process){var Assembler = function(features, filter) {
   var currentFeature, currentScenarioOrBackground, currentStep, suggestedFeature;
   var stashedTags = [];
 
@@ -759,7 +762,7 @@ module.exports = Assembler;
 
 });
 
-require.define("/cucumber/ast/background",function(require,module,exports,__dirname,__filename,process){var Background = function(keyword, name, description, uri, line) {
+require.define("c:/cucumber/ast/background",function(require,module,exports,__dirname,__filename,process){var Background = function(keyword, name, description, uri, line) {
   var Cucumber = require('../../cucumber');
 
   var steps = Cucumber.Type.Collection();
@@ -814,7 +817,7 @@ module.exports = Background;
 
 });
 
-require.define("/cucumber",function(require,module,exports,__dirname,__filename,process){var Cucumber = function(featureSource, supportCodeInitializer, options) {
+require.define("c:/cucumber",function(require,module,exports,__dirname,__filename,process){var Cucumber = function(featureSource, supportCodeInitializer, options) {
   var configuration = Cucumber.VolatileConfiguration(featureSource, supportCodeInitializer, options);
   var runtime       = Cucumber.Runtime(configuration);
   return runtime;
@@ -838,7 +841,7 @@ module.exports                 = Cucumber;
 
 });
 
-require.define("/cucumber/debug",function(require,module,exports,__dirname,__filename,process){var Debug = {
+require.define("c:/cucumber/debug",function(require,module,exports,__dirname,__filename,process){var Debug = {
   TODO: function TODO(description) {
     return function() { throw(new Error("IMPLEMENT ME: " + description)); };
   },
@@ -881,7 +884,7 @@ module.exports          = Debug;
 
 });
 
-require.define("/cucumber/debug/simple_ast_listener",function(require,module,exports,__dirname,__filename,process){var SimpleAstListener = function(options) {
+require.define("c:/cucumber/debug/simple_ast_listener",function(require,module,exports,__dirname,__filename,process){var SimpleAstListener = function(options) {
   var logs                        = '';
   var failed                      = false;
   var beforeEachScenarioCallbacks = [];
@@ -980,7 +983,7 @@ module.exports = SimpleAstListener;
 
 });
 
-require.define("/cucumber/listener",function(require,module,exports,__dirname,__filename,process){var Listener = function () {
+require.define("c:/cucumber/listener",function(require,module,exports,__dirname,__filename,process){var Listener = function () {
   var self = {
     hear: function hear(event, callback) {
       if (self.hasHandlerForEvent(event)) {
@@ -1026,12 +1029,13 @@ Listener.PrettyFormatter   = require('./listener/pretty_formatter');
 Listener.ProgressFormatter = require('./listener/progress_formatter');
 Listener.JsonFormatter     = require('./listener/json_formatter');
 Listener.StatsJournal      = require('./listener/stats_journal');
+Listener.StepsFormatter    = require('./listener/steps_formatter');
 Listener.SummaryFormatter  = require('./listener/summary_formatter');
 module.exports             = Listener;
 
 });
 
-require.define("/cucumber/listener/events",function(require,module,exports,__dirname,__filename,process){exports['BeforeFeatures'] = 'BeforeFeatures';
+require.define("c:/cucumber/listener/events",function(require,module,exports,__dirname,__filename,process){exports['BeforeFeatures'] = 'BeforeFeatures';
 exports['BeforeFeature']  = 'BeforeFeature';
 exports['Background']     = 'Background';
 exports['BeforeScenario'] = 'BeforeScenario';
@@ -1043,7 +1047,7 @@ exports['AfterFeature']   = 'AfterFeature';
 exports['AfterFeatures']  = 'AfterFeatures';
 });
 
-require.define("/cucumber/listener/formatter",function(require,module,exports,__dirname,__filename,process){var Formatter = function (options) {
+require.define("c:/cucumber/listener/formatter",function(require,module,exports,__dirname,__filename,process){var Formatter = function (options) {
   var Cucumber = require('../../cucumber');
 
   if (!options)
@@ -1073,7 +1077,7 @@ module.exports = Formatter;
 
 });
 
-require.define("/cucumber/listener/pretty_formatter",function(require,module,exports,__dirname,__filename,process){var PrettyFormatter = function(options) {
+require.define("c:/cucumber/listener/pretty_formatter",function(require,module,exports,__dirname,__filename,process){var PrettyFormatter = function(options) {
   var Cucumber         = require('../../cucumber');
 
   var color            = Cucumber.Util.ConsoleColor;
@@ -1267,7 +1271,7 @@ module.exports = PrettyFormatter;
 
 });
 
-require.define("/cucumber/listener/progress_formatter",function(require,module,exports,__dirname,__filename,process){var ConsoleColor = require('../util/colors');
+require.define("c:/cucumber/listener/progress_formatter",function(require,module,exports,__dirname,__filename,process){var ConsoleColor = require('../util/colors');
 var ProgressFormatter = function(options) {
   var Cucumber = require('../../cucumber');
   if (!options)
@@ -1339,7 +1343,7 @@ module.exports                             = ProgressFormatter;
 
 });
 
-require.define("/cucumber/util/colors",function(require,module,exports,__dirname,__filename,process){var ConsoleColor = {
+require.define("c:/cucumber/util/colors",function(require,module,exports,__dirname,__filename,process){var ConsoleColor = {
   ANSICodes: {
     'reset'         : '\033[0m',
     'bold'          : '\033[1m',
@@ -1427,7 +1431,7 @@ module.exports = ConsoleColor;
 
 });
 
-require.define("/cucumber/listener/json_formatter",function(require,module,exports,__dirname,__filename,process){var JsonFormatter = function(options) {
+require.define("c:/cucumber/listener/json_formatter",function(require,module,exports,__dirname,__filename,process){var JsonFormatter = function(options) {
   var Cucumber             = require('../../cucumber');
   var GherkinJsonFormatter = require('gherkin/lib/gherkin/formatter/json_formatter');
 
@@ -1494,7 +1498,7 @@ require.define("/cucumber/listener/json_formatter",function(require,module,expor
 
   self.handleBeforeFeatureEvent = function handleBeforeFeatureEvent(event, callback) {
     var feature      = event.getPayloadItem('feature');
-    currentFeatureId = feature.getName().replace(' ', '-'); // FIXME: wrong abstraction level, this should be encapsulated "somewhere"
+    currentFeatureId = feature.getName().replace(/ /g, '-'); // FIXME: wrong abstraction level, this should be encapsulated "somewhere"
 
     var featureProperties = {
       id:          currentFeatureId,
@@ -1753,7 +1757,7 @@ module.exports = JSONFormatter;
 
 });
 
-require.define("/cucumber/listener/stats_journal",function(require,module,exports,__dirname,__filename,process){var StatsJournal = function(options) {
+require.define("c:/cucumber/listener/stats_journal",function(require,module,exports,__dirname,__filename,process){var StatsJournal = function(options) {
   var Cucumber = require('../../cucumber');
 
   var passedScenarioCount      = 0;
@@ -1969,7 +1973,184 @@ module.exports = StatsJournal;
 
 });
 
-require.define("/cucumber/listener/summary_formatter",function(require,module,exports,__dirname,__filename,process){var SummaryFormatter = function (options) {
+require.define("c:/cucumber/listener/steps_formatter",function(require,module,exports,__dirname,__filename,process){var StepsFormatter = function (options) {
+  var Cucumber = require('../../cucumber');
+
+
+  var failedScenarioLogBuffer = "";
+  var undefinedStepLogBuffer  = "";
+  var failedStepResults       = Cucumber.Type.Collection();
+  var statsJournal            = Cucumber.Listener.StatsJournal();
+  var color                   = Cucumber.Util.ConsoleColor;
+
+  var self = Cucumber.Listener.Formatter(options);
+
+  var parentHear = self.hear;
+  self.hear = function hear(event, callback) {
+    statsJournal.hear(event, function () {
+      parentHear(event, callback);
+    });
+  };
+
+  self.handleStepResultEvent = function handleStepResult(event, callback) {
+    var stepResult = event.getPayloadItem('stepResult');
+    if (stepResult.isUndefined()) {
+      self.handleUndefinedStepResult(stepResult);
+    } else if (stepResult.isFailed()) {
+      self.handleFailedStepResult(stepResult);
+    }
+    callback();
+  };
+
+  self.handleUndefinedStepResult = function handleUndefinedStepResult(stepResult) {
+    var step = stepResult.getStep();
+    self.storeUndefinedStep(step);
+  };
+
+  self.handleFailedStepResult = function handleFailedStepResult(stepResult) {
+    self.storeFailedStepResult(stepResult);
+  };
+
+  self.handleAfterScenarioEvent = function handleAfterScenarioEvent(event, callback) {
+    if (statsJournal.isCurrentScenarioFailing()) {
+      var scenario = event.getPayloadItem('scenario');
+      self.storeFailedScenario(scenario);
+    }
+    callback();
+  };
+
+  self.handleAfterFeaturesEvent = function handleAfterFeaturesEvent(event, callback) {
+    self.logSummary();
+    callback();
+  };
+
+  self.storeFailedStepResult = function storeFailedStepResult(failedStepResult) {
+    failedStepResults.add(failedStepResult);
+  };
+
+  self.storeFailedScenario = function storeFailedScenario(failedScenario) {
+    var name = failedScenario.getName();
+    var uri  = failedScenario.getUri();
+    var line = failedScenario.getLine();
+    self.appendStringToFailedScenarioLogBuffer(uri + ":" + line + " # Scenario: " + name);
+  };
+
+  self.storeUndefinedStep = function storeUndefinedStep(step) {
+    var snippetBuilder = Cucumber.SupportCode.StepDefinitionSnippetBuilder(step, self.getStepDefinitionSyntax());
+    var snippet        = snippetBuilder.buildSnippet();
+    self.appendStringToUndefinedStepLogBuffer(snippet);
+  };
+
+  self.getStepDefinitionSyntax = function getStepDefinitionSyntax() {
+    var syntax = options.coffeeScriptSnippets ? 'CoffeeScript' : 'JavaScript';
+    return new Cucumber.SupportCode.StepDefinitionSnippetBuilderSyntax[syntax]();
+  };
+
+  self.appendStringToFailedScenarioLogBuffer = function appendStringToFailedScenarioLogBuffer(string) {
+    failedScenarioLogBuffer += string + "\n";
+  };
+
+  self.appendStringToUndefinedStepLogBuffer = function appendStringToUndefinedStepLogBuffer(string) {
+    if (undefinedStepLogBuffer.indexOf(string) == -1)
+      undefinedStepLogBuffer += string + "\n";
+  };
+
+  self.getFailedScenarioLogBuffer = function getFailedScenarioLogBuffer() {
+    return failedScenarioLogBuffer;
+  };
+
+  self.getUndefinedStepLogBuffer = function getUndefinedStepLogBuffer() {
+    return undefinedStepLogBuffer;
+  };
+
+  self.logSummary = function logSummary() {
+    if (statsJournal.witnessedAnyFailedStep())
+      self.logFailedStepResults();
+    self.logScenariosSummary();
+    self.logStepsSummary();
+    if (statsJournal.witnessedAnyUndefinedStep())
+      self.logUndefinedStepSnippets();
+  };
+
+  self.logFailedStepResults = function logFailedStepResults() {
+    self.log("(::) failed steps (::)\n\n");
+    failedStepResults.syncForEach(function(stepResult) {
+      self.logFailedStepResult(stepResult);
+    });
+    self.log("Failing scenarios:\n");
+    var failedScenarios = self.getFailedScenarioLogBuffer();
+    self.log(failedScenarios);
+    self.log("\n");
+  };
+
+  self.logFailedStepResult = function logFailedStepResult(stepResult) {
+    var failureMessage = stepResult.getFailureException();
+    self.log(failureMessage.stack || failureMessage);
+    self.log("\n\n");
+  };
+
+  self.logScenariosSummary = function logScenariosSummary() {
+    var scenarioCount          = statsJournal.getScenarioCount();
+    var passedScenarioCount    = statsJournal.getPassedScenarioCount();
+    var undefinedScenarioCount = statsJournal.getUndefinedScenarioCount();
+    var pendingScenarioCount   = statsJournal.getPendingScenarioCount();
+    var failedScenarioCount    = statsJournal.getFailedScenarioCount();
+    var details                = [];
+
+    self.log(scenarioCount + " scenario" + (scenarioCount != 1 ? "s" : ""));
+    if (scenarioCount > 0 ) {
+      if (failedScenarioCount > 0)
+        details.push(color.format('failed', failedScenarioCount + " failed"));
+      if (undefinedScenarioCount > 0)
+        details.push(color.format('undefined', undefinedScenarioCount + " undefined"));
+      if (pendingScenarioCount > 0)
+        details.push(color.format('pending', pendingScenarioCount + " pending"));
+      if (passedScenarioCount > 0)
+        details.push(color.format('passed', passedScenarioCount + " passed"));
+      self.log(" (" + details.join(', ') + ")");
+    }
+    self.log("\n");
+  };
+
+  self.logStepsSummary = function logStepsSummary() {
+    var stepCount          = statsJournal.getStepCount();
+    var passedStepCount    = statsJournal.getPassedStepCount();
+    var undefinedStepCount = statsJournal.getUndefinedStepCount();
+    var skippedStepCount   = statsJournal.getSkippedStepCount();
+    var pendingStepCount   = statsJournal.getPendingStepCount();
+    var failedStepCount    = statsJournal.getFailedStepCount();
+    var details            = [];
+
+    self.log(stepCount + " step" + (stepCount != 1 ? "s" : ""));
+    if (stepCount > 0) {
+      if (failedStepCount > 0)
+        details.push(color.format('failed', failedStepCount    + " failed"));
+      if (undefinedStepCount > 0)
+        details.push(color.format('undefined', undefinedStepCount + " undefined"));
+      if (pendingStepCount > 0)
+        details.push(color.format('pending', pendingStepCount   + " pending"));
+      if (skippedStepCount > 0)
+        details.push(color.format('skipped', skippedStepCount   + " skipped"));
+      if (passedStepCount > 0)
+        details.push(color.format('passed', passedStepCount    + " passed"));
+      self.log(" (" + details.join(', ') + ")");
+    }
+    self.log("\n");
+  };
+
+  self.logUndefinedStepSnippets = function logUndefinedStepSnippets() {
+    var undefinedStepLogBuffer = self.getUndefinedStepLogBuffer();
+    self.log(color.format('pending', "\nYou can implement step definitions for undefined steps with these snippets:\n\n"));
+    self.log(color.format('pending', undefinedStepLogBuffer));
+  };
+
+  return self;
+};
+module.exports = StepsFormatter;
+
+});
+
+require.define("c:/cucumber/listener/summary_formatter",function(require,module,exports,__dirname,__filename,process){var SummaryFormatter = function (options) {
   var Cucumber = require('../../cucumber');
 
 
@@ -2146,7 +2327,7 @@ module.exports = SummaryFormatter;
 
 });
 
-require.define("/cucumber/parser",function(require,module,exports,__dirname,__filename,process){var Parser = function(featureSources, astFilter) {
+require.define("c:/cucumber/parser",function(require,module,exports,__dirname,__filename,process){var Parser = function(featureSources, astFilter) {
   var Gherkin      = require('gherkin');
   var GherkinLexer = require('gherkin/lib/gherkin/lexer/en');
   var Cucumber     = require('../cucumber');
@@ -3512,7 +3693,7 @@ if (typeof define !== 'undefined') {
 
 });
 
-require.define("/cucumber/runtime",function(require,module,exports,__dirname,__filename,process){var Runtime = function(configuration) {
+require.define("c:/cucumber/runtime",function(require,module,exports,__dirname,__filename,process){var Runtime = function(configuration) {
   var Cucumber = require('../cucumber');
 
   var listeners = Cucumber.Type.Collection();
@@ -3558,7 +3739,7 @@ module.exports               = Runtime;
 
 });
 
-require.define("/cucumber/runtime/ast_tree_walker",function(require,module,exports,__dirname,__filename,process){var AstTreeWalker = function(features, supportCodeLibrary, listeners) {
+require.define("c:/cucumber/runtime/ast_tree_walker",function(require,module,exports,__dirname,__filename,process){var AstTreeWalker = function(features, supportCodeLibrary, listeners) {
   var Cucumber = require('../../cucumber');
 
   var world;
@@ -3769,7 +3950,7 @@ module.exports                                    = AstTreeWalker;
 
 });
 
-require.define("/cucumber/runtime/ast_tree_walker/event",function(require,module,exports,__dirname,__filename,process){var Event = function(name, payload) {
+require.define("c:/cucumber/runtime/ast_tree_walker/event",function(require,module,exports,__dirname,__filename,process){var Event = function(name, payload) {
   var AstTreeWalker = require('../ast_tree_walker');
 
   var self = {
@@ -3815,7 +3996,7 @@ module.exports = Event;
 
 });
 
-require.define("/cucumber/runtime/step_result",function(require,module,exports,__dirname,__filename,process){var StepResult = function (payload) {
+require.define("c:/cucumber/runtime/step_result",function(require,module,exports,__dirname,__filename,process){var StepResult = function (payload) {
   var self = {
     isFailed:     function isFailed()     { return false; },
     isPending:    function isPending()    { return false; },
@@ -3838,7 +4019,7 @@ require.define("/cucumber/runtime/step_result",function(require,module,exports,_
 module.exports = StepResult;
 });
 
-require.define("/cucumber/runtime/successful_step_result",function(require,module,exports,__dirname,__filename,process){var SuccessfulStepResult = function(payload) {
+require.define("c:/cucumber/runtime/successful_step_result",function(require,module,exports,__dirname,__filename,process){var SuccessfulStepResult = function(payload) {
   var Cucumber = require('../../cucumber');
 
   var self = Cucumber.Runtime.StepResult(payload);
@@ -3851,7 +4032,7 @@ module.exports = SuccessfulStepResult;
 
 });
 
-require.define("/cucumber/runtime/pending_step_result",function(require,module,exports,__dirname,__filename,process){var PendingStepResult = function(payload) {
+require.define("c:/cucumber/runtime/pending_step_result",function(require,module,exports,__dirname,__filename,process){var PendingStepResult = function(payload) {
   var Cucumber = require('../../cucumber');
 
   var self = Cucumber.Runtime.StepResult(payload);
@@ -3864,7 +4045,7 @@ module.exports = PendingStepResult;
 
 });
 
-require.define("/cucumber/runtime/failed_step_result",function(require,module,exports,__dirname,__filename,process){var FailedStepResult = function(payload) {
+require.define("c:/cucumber/runtime/failed_step_result",function(require,module,exports,__dirname,__filename,process){var FailedStepResult = function(payload) {
   var Cucumber = require('../../cucumber');
 
   var self = Cucumber.Runtime.StepResult(payload);
@@ -3881,7 +4062,7 @@ module.exports = FailedStepResult;
 
 });
 
-require.define("/cucumber/runtime/skipped_step_result",function(require,module,exports,__dirname,__filename,process){var SkippedStepResult = function(payload) {
+require.define("c:/cucumber/runtime/skipped_step_result",function(require,module,exports,__dirname,__filename,process){var SkippedStepResult = function(payload) {
   var Cucumber = require('../../cucumber');
 
   var self = Cucumber.Runtime.StepResult(payload);
@@ -3894,7 +4075,7 @@ module.exports = SkippedStepResult;
 
 });
 
-require.define("/cucumber/runtime/undefined_step_result",function(require,module,exports,__dirname,__filename,process){var UndefinedStepResult = function(payload) {
+require.define("c:/cucumber/runtime/undefined_step_result",function(require,module,exports,__dirname,__filename,process){var UndefinedStepResult = function(payload) {
   var Cucumber = require('../../cucumber');
 
   var self = Cucumber.Runtime.StepResult(payload);
@@ -3907,7 +4088,7 @@ module.exports = UndefinedStepResult;
 
 });
 
-require.define("/cucumber/support_code",function(require,module,exports,__dirname,__filename,process){var SupportCode                                = {};
+require.define("c:/cucumber/support_code",function(require,module,exports,__dirname,__filename,process){var SupportCode                                = {};
 SupportCode.Hook                               = require('./support_code/hook');
 SupportCode.Library                            = require('./support_code/library');
 SupportCode.StepDefinition                     = require('./support_code/step_definition');
@@ -3917,7 +4098,7 @@ SupportCode.WorldConstructor                   = require('./support_code/world_c
 module.exports                                 = SupportCode;
 });
 
-require.define("/cucumber/support_code/hook",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
+require.define("c:/cucumber/support_code/hook",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
 
 var Hook = function(code, options) {
   var Cucumber = require('../../cucumber');
@@ -3927,7 +4108,10 @@ var Hook = function(code, options) {
   var self = {
     invokeBesideScenario: function invokeBesideScenario(scenario, world, callback) {
       if (self.appliesToScenario(scenario))
-        code.call(world, callback);
+        if (code.length === 1)
+          code.call(world, callback);
+        else
+          code.call(world, scenario, callback);
       else
         callback(function(endPostScenarioAroundHook) { endPostScenarioAroundHook(); });
     },
@@ -5235,7 +5419,7 @@ require.define("/node_modules/underscore/underscore.js",function(require,module,
 
 });
 
-require.define("/cucumber/support_code/library",function(require,module,exports,__dirname,__filename,process){var Library = function(supportCodeDefinition) {
+require.define("c:/cucumber/support_code/library",function(require,module,exports,__dirname,__filename,process){var Library = function(supportCodeDefinition) {
   var Cucumber = require('../../cucumber');
 
   var listeners        = Cucumber.Type.Collection();
@@ -5354,7 +5538,7 @@ module.exports = Library;
 
 });
 
-require.define("/cucumber/support_code/library/hooker",function(require,module,exports,__dirname,__filename,process){var Hooker = function() {
+require.define("c:/cucumber/support_code/library/hooker",function(require,module,exports,__dirname,__filename,process){var Hooker = function() {
   var Cucumber = require('../../../cucumber');
 
   var aroundHooks = Cucumber.Type.Collection();
@@ -5433,7 +5617,7 @@ module.exports = Hooker;
 
 });
 
-require.define("/cucumber/support_code/step_definition",function(require,module,exports,__dirname,__filename,process){var StepDefinition = function (pattern, code) {
+require.define("c:/cucumber/support_code/step_definition",function(require,module,exports,__dirname,__filename,process){var StepDefinition = function (pattern, code) {
   var Cucumber = require('../../cucumber');
 
   var self = {
@@ -5561,7 +5745,7 @@ module.exports = StepDefinition;
 
 });
 
-require.define("/cucumber/support_code/step_definition_snippet_builder",function(require,module,exports,__dirname,__filename,process){var _  = require('underscore'),
+require.define("c:/cucumber/support_code/step_definition_snippet_builder",function(require,module,exports,__dirname,__filename,process){var _  = require('underscore'),
   stepDefinitionSnippetBuilderSyntax = require ('./step_definition_snippet_builder_syntax');
 
 var StepDefinitionSnippetBuilder = function(step, syntax) {
@@ -5654,7 +5838,7 @@ module.exports = StepDefinitionSnippetBuilder;
 
 });
 
-require.define("/cucumber/support_code/step_definition_snippet_builder_syntax",function(require,module,exports,__dirname,__filename,process){var _                  = require('underscore');
+require.define("c:/cucumber/support_code/step_definition_snippet_builder_syntax",function(require,module,exports,__dirname,__filename,process){var _                  = require('underscore');
 var Syntax             = function() {};
 var JavaScriptSyntax   = function() {};
 var CoffeeScriptSyntax = function() {};
@@ -5719,7 +5903,7 @@ JavaScriptSyntax.prototype = {
   },
 
   getStepDefinitionInner2: function() {
-    return ', function(';
+    return ', function (';
   },
 
   getStepDefinitionEnd: function() {
@@ -5751,16 +5935,17 @@ _.extend(CoffeeScriptSyntax.prototype, Syntax.prototype);
 
 exports.JavaScript   = JavaScriptSyntax;
 exports.CoffeeScript = CoffeeScriptSyntax;
+
 });
 
-require.define("/cucumber/support_code/world_constructor",function(require,module,exports,__dirname,__filename,process){var WorldConstructor = function() {
+require.define("c:/cucumber/support_code/world_constructor",function(require,module,exports,__dirname,__filename,process){var WorldConstructor = function() {
   return function World(callback) { callback() };
 };
 module.exports = WorldConstructor;
 
 });
 
-require.define("/cucumber/tag_group_parser",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
+require.define("c:/cucumber/tag_group_parser",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
 
 var TagGroupParser = function(tagGroupString) {
   var self = {
@@ -5789,7 +5974,7 @@ module.exports = TagGroupParser;
 
 });
 
-require.define("/cucumber/type",function(require,module,exports,__dirname,__filename,process){var Type           = {};
+require.define("c:/cucumber/type",function(require,module,exports,__dirname,__filename,process){var Type           = {};
 Type.Collection    = require('./type/collection');
 Type.HashDataTable = require('./type/hash_data_table');
 Type.String        = require('./type/string');
@@ -5797,7 +5982,7 @@ module.exports     = Type;
 
 });
 
-require.define("/cucumber/type/collection",function(require,module,exports,__dirname,__filename,process){var Collection = function() {
+require.define("c:/cucumber/type/collection",function(require,module,exports,__dirname,__filename,process){var Collection = function() {
   var items = new Array();
   var self = {
     add:         function add(item)                       { items.push(item); },
@@ -5829,7 +6014,7 @@ module.exports = Collection;
 
 });
 
-require.define("/cucumber/type/hash_data_table",function(require,module,exports,__dirname,__filename,process){var HashDataTable = function(rawArray) {
+require.define("c:/cucumber/type/hash_data_table",function(require,module,exports,__dirname,__filename,process){var HashDataTable = function(rawArray) {
   var self = {
     raw: function raw() {
       var hashKeys        = self.getHashKeys();
@@ -5872,7 +6057,7 @@ require.define("/cucumber/type/hash_data_table",function(require,module,exports,
 module.exports = HashDataTable;
 });
 
-require.define("/cucumber/type/string",function(require,module,exports,__dirname,__filename,process){if(!String.prototype.trim) {
+require.define("c:/cucumber/type/string",function(require,module,exports,__dirname,__filename,process){if(!String.prototype.trim) {
   String.prototype.trim = function () {
     return this.replace(/^\s+|\s+$/g,'');
   };
@@ -5881,7 +6066,7 @@ module.exports = String;
 
 });
 
-require.define("/cucumber/util",function(require,module,exports,__dirname,__filename,process){var Util       = {};
+require.define("c:/cucumber/util",function(require,module,exports,__dirname,__filename,process){var Util       = {};
 Util.Arguments = require('./util/arguments');
 Util.Exception = require('./util/exception');
 Util.RegExp    = require('./util/reg_exp');
@@ -5891,13 +6076,13 @@ module.exports = Util;
 
 });
 
-require.define("/cucumber/util/arguments",function(require,module,exports,__dirname,__filename,process){var Arguments = function Arguments(argumentsObject) {
+require.define("c:/cucumber/util/arguments",function(require,module,exports,__dirname,__filename,process){var Arguments = function Arguments(argumentsObject) {
   return Array.prototype.slice.call(argumentsObject);
 };
 module.exports = Arguments;
 });
 
-require.define("/cucumber/util/exception",function(require,module,exports,__dirname,__filename,process){var Exception = {
+require.define("c:/cucumber/util/exception",function(require,module,exports,__dirname,__filename,process){var Exception = {
   registerUncaughtExceptionHandler: function registerUncaughtExceptionHandler(exceptionHandler) {
     if (process.on)
       process.on('uncaughtException', exceptionHandler);
@@ -5917,7 +6102,7 @@ module.exports = Exception;
 
 });
 
-require.define("/cucumber/util/reg_exp",function(require,module,exports,__dirname,__filename,process){var RegExp = {
+require.define("c:/cucumber/util/reg_exp",function(require,module,exports,__dirname,__filename,process){var RegExp = {
   escapeString: function escapeString(string) {
     var escaped = string.replace(RegExp.ESCAPE_PATTERN, RegExp.ESCAPE_REPLACEMENT);
     return escaped;
@@ -5930,7 +6115,7 @@ module.exports = RegExp;
 
 });
 
-require.define("/cucumber/util/string",function(require,module,exports,__dirname,__filename,process){var String = {
+require.define("c:/cucumber/util/string",function(require,module,exports,__dirname,__filename,process){var String = {
   count: function count(hayStack, needle) {
     var splitHayStack = hayStack.split(needle);
     return splitHayStack.length - 1;
@@ -5940,7 +6125,7 @@ module.exports = String;
 
 });
 
-require.define("/cucumber/volatile_configuration",function(require,module,exports,__dirname,__filename,process){var VolatileConfiguration = function VolatileConfiguration(features, supportCodeInitializer, options) {
+require.define("c:/cucumber/volatile_configuration",function(require,module,exports,__dirname,__filename,process){var VolatileConfiguration = function VolatileConfiguration(features, supportCodeInitializer, options) {
   var Cucumber = require('../cucumber');
   var supportCodeLibrary = Cucumber.SupportCode.Library(supportCodeInitializer);
 
@@ -5990,7 +6175,7 @@ module.exports = VolatileConfiguration;
 
 });
 
-require.define("/cucumber/ast/data_table",function(require,module,exports,__dirname,__filename,process){var DataTable  = function() {
+require.define("c:/cucumber/ast/data_table",function(require,module,exports,__dirname,__filename,process){var DataTable  = function() {
   var Cucumber = require('../../cucumber');
 
   var rowsCollection = Cucumber.Type.Collection();
@@ -6037,7 +6222,7 @@ module.exports = DataTable;
 
 });
 
-require.define("/cucumber/ast/data_table/row",function(require,module,exports,__dirname,__filename,process){var Row = function(cells, uri, line) {
+require.define("c:/cucumber/ast/data_table/row",function(require,module,exports,__dirname,__filename,process){var Row = function(cells, uri, line) {
   var Cucumber = require('../../../cucumber');
 
   self = {
@@ -6051,7 +6236,7 @@ module.exports = Row;
 
 });
 
-require.define("/cucumber/ast/doc_string",function(require,module,exports,__dirname,__filename,process){var DocString = function(contentType, contents, uri, line) {
+require.define("c:/cucumber/ast/doc_string",function(require,module,exports,__dirname,__filename,process){var DocString = function(contentType, contents, uri, line) {
   var self = {
     getContents: function getContents() {
       return contents;
@@ -6075,7 +6260,7 @@ module.exports = DocString;
 
 });
 
-require.define("/cucumber/ast/feature",function(require,module,exports,__dirname,__filename,process){var Feature = function(keyword, name, description, uri, line) {
+require.define("c:/cucumber/ast/feature",function(require,module,exports,__dirname,__filename,process){var Feature = function(keyword, name, description, uri, line) {
   var Cucumber = require('../../cucumber');
 
   var background;
@@ -6164,7 +6349,7 @@ module.exports = Feature;
 
 });
 
-require.define("/cucumber/ast/features",function(require,module,exports,__dirname,__filename,process){var Features = function() {
+require.define("c:/cucumber/ast/features",function(require,module,exports,__dirname,__filename,process){var Features = function() {
   var Cucumber = require('../../cucumber');
 
   var features = Cucumber.Type.Collection();
@@ -6190,7 +6375,7 @@ module.exports = Features;
 
 });
 
-require.define("/cucumber/ast/filter",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
+require.define("c:/cucumber/ast/filter",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
 
 var Filter = function(rules) {
   var self = {
@@ -6209,7 +6394,7 @@ module.exports = Filter;
 
 });
 
-require.define("/cucumber/ast/filter/any_of_tags_rule",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
+require.define("c:/cucumber/ast/filter/any_of_tags_rule",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
 
 var AnyOfTagsRule = function(tags) {
   var Cucumber = require('../../../cucumber');
@@ -6229,7 +6414,7 @@ module.exports = AnyOfTagsRule;
 
 });
 
-require.define("/cucumber/ast/filter/element_matching_tag_spec",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
+require.define("c:/cucumber/ast/filter/element_matching_tag_spec",function(require,module,exports,__dirname,__filename,process){var _ = require('underscore');
 
 var ElementMatchingTagSpec = function(tagName) {
   var self = {
@@ -6267,7 +6452,7 @@ module.exports = ElementMatchingTagSpec;
 
 });
 
-require.define("/cucumber/ast/scenario",function(require,module,exports,__dirname,__filename,process){var Scenario = function(keyword, name, description, uri, line) {
+require.define("c:/cucumber/ast/scenario",function(require,module,exports,__dirname,__filename,process){var Scenario = function(keyword, name, description, uri, line) {
   var Cucumber = require('../../cucumber');
 
   var background;
@@ -6371,7 +6556,7 @@ module.exports = Scenario;
 
 });
 
-require.define("/cucumber/ast/step",function(require,module,exports,__dirname,__filename,process){var Step = function(keyword, name, uri, line) {
+require.define("c:/cucumber/ast/step",function(require,module,exports,__dirname,__filename,process){var Step = function(keyword, name, uri, line) {
   var Cucumber = require('../../cucumber');
   var docString, dataTable, previousStep;
 
@@ -6541,7 +6726,7 @@ module.exports = Step;
 
 });
 
-require.define("/cucumber/ast/tag",function(require,module,exports,__dirname,__filename,process){var Tag = function(name, uri, line) {
+require.define("c:/cucumber/ast/tag",function(require,module,exports,__dirname,__filename,process){var Tag = function(name, uri, line) {
   var Cucumber = require('../../cucumber');
 
   var self = {
